@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams, useRouteMatch } from 'react-router-dom';
 import { SocketContext } from '../../../context/socket';
 import Peer from 'peerjs';
 import "./VideoScreen.sass"
-import { useState } from 'react/cjs/react.development';
 import Camera from '../Camera/Camera';
 
 function VideoScreen() {
