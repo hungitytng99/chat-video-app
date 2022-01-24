@@ -53,7 +53,7 @@ function VideoScreen() {
     }, [])
 
     const call = (remotePeerId) => {
-        var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.moz.GetUserMedia;
+        var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
         getUserMedia({ video: true }, (mediaStream) => {
             myVideo.current.srcObject = mediaStream;
