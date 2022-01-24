@@ -7,7 +7,6 @@ import Camera from '../Camera/Camera';
 
 function VideoScreen() {
     let { idCall, fromId, fromUserName, toId, toUserName } = useParams();
-    const [refresh, setRefresh] = useState(false);
     // src 
     // autoPlay
     const myVideo = useRef(null);
@@ -35,7 +34,7 @@ function VideoScreen() {
         const peer = new Peer(currentSocketId);
         peer.on('call', (call) => {
             var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.moz.GetUserMedia;
-            getUserMedia({ video: true }, (mediaStream) => {
+            getUserMedia({ video: true, audio: true }, (mediaStream) => {
 
                 myVideo.current.srcObject = mediaStream;
                 myVideo.current.play();
@@ -54,7 +53,7 @@ function VideoScreen() {
     const call = (remotePeerId) => {
         var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-        getUserMedia({ video: true }, (mediaStream) => {
+        getUserMedia({ video: true, audio: true }, (mediaStream) => {
             myVideo.current.srcObject = mediaStream;
             myVideo.current.play();
 
