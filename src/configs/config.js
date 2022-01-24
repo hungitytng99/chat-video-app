@@ -1,1 +1,1 @@
-export const SOCKET_URL = "ws://localhost:4000"
+export const SOCKET_URL = "ws://20.210.116.150:4000"

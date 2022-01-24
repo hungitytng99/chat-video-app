@@ -76,6 +76,9 @@ function VideoScreen() {
 
     return (
         <div id="video-grid">
+            <button onClick={() => {
+                call(getCallerSocketId());
+            }}>Refresh</button>
             <div className="video">
                 <video muted ref={myVideo} autoPlay style={{ width: "300px" }} />
             </div>
