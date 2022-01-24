@@ -1,0 +1,44 @@
+let params = useParams();
+console.log('params: ', params);
+const socket = useContext(SocketContext);
+
+const init = async () => {
+    await setupCamera();
+}
+
+const fromVideo = useRef(null);
+const toVideo = useRef(null);
+
+function setupCamera() {
+    return new Promise((resolve, reject) => {
+        navigator.getUserMedia = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia(
+                { video: true },
+                stream => {
+                    console.log('stream: ', stream);
+                    fromVideo.current.srcObject = stream;
+                    resolve();
+                },
+                error => reject(error),
+            )
+        } else {
+            reject();
+        }
+    })
+}
+useEffect(() => {
+    socket.emit('join a call', params.idCall);
+}, [])
+
+
+useEffect(() => {
+    init();
+    socket.on("event", function (data) {
+        console.log('data: ', data);
+    });
+}, [])
+

@@ -1,0 +1,53 @@
+.flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+.container
+    width: 1200px
+    display: flex
+.list-user
+    width: 20%
+    height: 50px
+    line-height: 50px
+    & span.header
+        display: block
+        border-bottom: 1px solid #dfdfdf
+        border-right: 1px solid #dfdfdf
+        border-left: 1px solid #dfdfdf
+        font-weight: bold
+.list-message
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 80%
+    height: calc( 100vh - 20px )
+    margin-right: 17px
+    overflow: hidden
+    &__box
+        flex: 1
+        max-height: calc( 100vh - 150px )
+        overflow-y: scroll
+        padding: 0px 17px 15px 0px
+        width: 100%
+        box-sizing: content-box
+    & span.header
+        display: block
+        border-bottom: 1px solid #dfdfdf
+        border-right: 1px solid #dfdfdf
+        line-height: 50px
+        font-weight: bold
+.list-user__item
+    font-weight: 400
+    line-height: 30px
+.list-message__typing
+    display: flex
+    position: relative
+    & input
+        padding: 0px 10px
+        height: 34px
+        flex: 1
+    & button
+        width: 100px
+.list-user__typing-message
+    position: absolute
+    top: -25px
