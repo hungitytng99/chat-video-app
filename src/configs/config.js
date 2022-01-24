@@ -1,1 +1,1 @@
-export const SOCKET_URL = "wss://chat-app.japaneast.cloudapp.azure.com:4000"
+export const SOCKET_URL = "wss://chat-app.japaneast.cloudapp.azure.com"
