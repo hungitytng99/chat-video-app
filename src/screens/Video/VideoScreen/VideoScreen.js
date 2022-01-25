@@ -39,10 +39,8 @@ function VideoScreen() {
                 myVideo.current.srcObject = mediaStream;
                 myVideo.current.play();
                 call.answer(mediaStream);
-                console.log("Set answer stream");
                 call.on('stream', remoteStream => {
                     userVideo.current.srcObject = remoteStream;
-                    userVideo.current.play();
                 });
             })
         });
@@ -55,13 +53,11 @@ function VideoScreen() {
 
         getUserMedia({ video: true, audio: true }, (mediaStream) => {
             myVideo.current.srcObject = mediaStream;
-            myVideo.current.play();
 
             const call = connectionRef.current.call(remotePeerId, mediaStream);
             call.on('stream', remoteStream => {
                 console.log("Set call stream");
                 userVideo.current.srcObject = remoteStream;
-                userVideo.current.play();
             });
         })
     }
