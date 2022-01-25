@@ -62,11 +62,11 @@ function VideoScreen() {
         })
     }
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         call(getCallerSocketId());
-    //     }, 1000);
-    // },[]);
+    useEffect(() => {
+        setTimeout(() => {
+            call(getCallerSocketId());
+        }, 2000);
+    },[]);
 
     return (
         <div id="video-grid">
